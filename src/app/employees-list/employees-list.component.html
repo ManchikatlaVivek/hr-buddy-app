@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Team</th>
+                <th scope="col">Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of elist">
+                <td>{{e.name}}</td>
+                <td>{{e.role}}</td>
+                <td>{{e.team}}</td>
+                <td>{{e.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
