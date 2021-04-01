@@ -14,7 +14,10 @@
                 <td>{{e.role}}</td>
                 <td>{{e.team}}</td>
                 <td>{{e.salary}}</td>
+                <td><button class="btn btn-primary" (click)=update(e)>Update</button></td>
+                <td><button class="btn btn-warning" (click)=delete(e)>Delete</button></td>
             </tr>
         </tbody>
     </table>
+    <button class="btn btn-primary" (click)="save()">Add Employee</button>
 </div>

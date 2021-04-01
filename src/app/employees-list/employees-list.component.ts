@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeComponent } from '../employee/employee.component';
+import { Router } from '@angular/router';
 import { BasicServiceService } from '../service/basic-service.service';
 
 @Component({
@@ -9,8 +9,9 @@ import { BasicServiceService } from '../service/basic-service.service';
 })
 export class EmployeesListComponent implements OnInit {
 
-  public elist: EmployeeComponent[] = []
-  constructor(private basicService: BasicServiceService) { }
+  public elist: Employee[] = []
+  constructor(private basicService: BasicServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAllEmployees();
@@ -25,4 +26,30 @@ export class EmployeesListComponent implements OnInit {
     )
   }
 
+  public delete(emp: Employee) {
+    console.log("delete method "+ emp.id)
+    this.basicService.deleteEmployee(emp.id).subscribe(
+      response => {
+        console.log(response);
+        this.getAllEmployees();
+      }
+    )
+  }
+
+  public update(emp:Employee){
+    this.router.navigate(['employee'])
+  }
+
+  public save() {
+    console.log("add method clicked")
+    this.router.navigate(['employee'])
+  }
+}
+
+export class Employee {
+  constructor(public id: number,
+    public name: string,
+    public role: string,
+    public team: string,
+    public salary: number) { }
 }

@@ -1,1 +1,13 @@
-<p>employee works!</p>
+<div class="continaer">
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="emp.name" (ngModelChange)="emp.name=$event"><br>
+    <label for="role">Role:</label>
+    <input type="text" id="role" name="role" [ngModel]="emp.role" (ngModelChange)="emp.role=$event"><br>
+    <label for="team">Team:</label>
+    <input type="team" id="team" name="team" [ngModel]="emp.team" (ngModelChange)="emp.team=$event"><br>
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" name="salary" [ngModel]="emp.salary" (ngModelChange)="emp.salary=$event"><br>
+  </form>
+  <button class="btn btn-success" (click)="save(emp)">Submit</button>
+</div>
