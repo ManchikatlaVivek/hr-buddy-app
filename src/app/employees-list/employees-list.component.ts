@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BasicServiceService } from '../service/basic-service.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class EmployeesListComponent implements OnInit {
   }
 
   public delete(emp: Employee) {
-    console.log("delete method "+ emp.id)
+    console.log("delete method " + emp.id)
     this.basicService.deleteEmployee(emp.id).subscribe(
       response => {
         console.log(response);
@@ -36,13 +36,13 @@ export class EmployeesListComponent implements OnInit {
     )
   }
 
-  public update(emp:Employee){
-    this.router.navigate(['employee'])
+  public update(emp: Employee) {
+    this.router.navigate(['employee', emp.id])
   }
 
   public save() {
     console.log("add method clicked")
-    this.router.navigate(['employee'])
+    this.router.navigate(['employee', -1])
   }
 }
 

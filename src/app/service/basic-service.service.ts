@@ -13,15 +13,19 @@ export class BasicServiceService {
     return this.httpClient.get<Array<Employee>>('http://localhost:8080/all');
   }
 
-  public saveEmployee(emp:Employee) {
+  public getEmployeeWithId(id: any) {
+    return this.httpClient.get<Employee>(`http://localhost:8080/employee/${id}`);
+  }
+
+  public saveEmployee(emp: Employee) {
     return this.httpClient.post<Employee>('http://localhost:8080/employee', emp);
   }
 
-  public deleteEmployee(id:number) {
+  public deleteEmployee(id: number) {
     return this.httpClient.delete<boolean>(`http://localhost:8080/employee/${id}`);
   }
 
-  public updateEmployee(emp:Employee) {
+  public updateEmployee(emp: Employee) {
     return this.httpClient.put<Employee>(`http://localhost:8080/employee/${emp.id}`, emp);
   }
 
